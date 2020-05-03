@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binario em Decimal</title>
+</head>
+<body>
+    
+
+<h1></h1>
+<input type="text" id="fname" onchange="myFunction()"><button onclick="limpar()">Limpar</button>
+<p></p>
+
+
+<script>
+    const binario = document.querySelector("#fname")
+    const b = document.querySelector("button")
+    const p = document.querySelector("p")
+    const h = document.querySelector("h1")
+
+    
+    function limpar(){
+        binario.value ="";
+        h.textContent ="";
+        p.textContent = "";
+    }
+
+    function myFunction()
+     {   var aux=0
+         var x=0
+         var total=0
+         var n = binario.value
+         var y = 1
+         var pow =0
+        for (let i = 0; i < n.length; i++) {
+        aux = parseInt(n.charAt([i]))
+        if (validar(aux)) {
+            pow = Math.pow(2,n.length - y)
+            x = aux * pow
+            total += x 
+            h.textContent = total
+            y++
+        } else {
+            return
+        }
+        
+        }
+        
+        console.log(total)
+        
+    }
+    
+   
+    function validar(n) {
+  
+        //const n = parseInt(binario.value)
+       
+        if ((n !== 0)&&(n !== 1)) {
+            p.textContent = "Somente 0 ou 1"
+            console.log("somente 0 ou 1",p)
+            return false
+        } else {
+            return true
+        }
+    }
+
+    
+ 
+</script>
+</body>
+</html>
